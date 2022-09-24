@@ -1,5 +1,5 @@
 const { Client } = require('pg'); // imports the pg module
-const { idleTimeoutMillis } = require('pg/lib/defaults');
+// const { idleTimeoutMillis } = require('pg/lib/defaults');
 
 // supply the db name and location of the database
 const client = new Client('postgres://localhost:5432/juicebox-dev');
@@ -16,11 +16,11 @@ async function getAllUsers() {
 async function createUser({ username, password }) {
     try {
         const result = await client.query(`
-            INSERT into users(username, password)
-            VALUES ($1, $2);
-            ON CONFLICT (username) DO NOTHING 
-            RETURNING *;
-        `, [username, password]);
+      INSERT INTO users(username, password) 
+      VALUES($1, $2) 
+      ON CONFLICT (username) DO NOTHING 
+      RETURNING *;
+    `, [username, password]);
 
         return result
     } catch (error) {
