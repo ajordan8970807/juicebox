@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 /**
- * USER Methods
+ * USER Method
  */
 
 async function createUser({ username, password, name, location }) {
