@@ -1,2 +1,2 @@
 # juicebox
-juicebox proj using node and postgresql
+juicebox proj using node, express, and postgresql
